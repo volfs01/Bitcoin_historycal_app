@@ -35,7 +35,7 @@ def run_eda_app() :
     st.text('피어슨의 상관계수로 해석하면 \n거래량과 가격은 약한 음적 선형 관계라는것을 알 수 있다.')
     st.image('https://patentimages.storage.googleapis.com/67/b9/0e/4261356f8eaf28/112016094691347-pat00013.png')
     
-    st.subheader('원하시는 날짜를 기준으로 증감률을 보여드립니다.')
+    st.subheader('원하시는 날짜를 기준으로 증감률과 데이터를 보여드립니다.')
     
     # 깨달은 점 이미 st.dataframe을 해버리고 거기다가 연산을 하는건 안된다. 
     # 괄호안에 한번에 연산해야한다. 
@@ -43,50 +43,11 @@ def run_eda_app() :
     my_date = st.date_input('날짜를 입력하시오')
     
     Ratio = ((df['Close'][365]- df.loc[df['Date'] == str(my_date) , :]['Close']) / df.loc[df['Date'] == str(my_date) , :]['Close']* 100)  
-    
+    data = df.loc[df['Date'] == str(my_date) , : ]
     st.success('{}부터 2022-12-14까지 증감률은 {}%입니다.' .format(my_date ,Ratio.values ))
+    select = st.radio('데이터표' , ['숨기기' ,'보기'])
+    if select == '숨기기' :
+        pass
+    elif select == '보기' :
+        st.dataframe(data)
     
-    st.subheader('가격과 거래량을 차트로 보여드릴게요')
-    chart = ['캔들차트' , '선차트' , '바차트']
-    choice3 = st.selectbox('차트 종류를 선택하세요',chart)
-    
-    st.text('가격차트')
-    
-    if choice3 == '캔들차트' :
-        
-        fig2 = plt.figure()
-        fig100 = go.Figure(data=[go.Candlestick(x=df['Date'],
-                open=df['Open'], high=df['High'],
-                low=df['Low'], close=df['Close'])
-                      ])
-
-        fig100.update_layout(xaxis_rangeslider_visible=False)
-        st.plotly_chart(fig100)
-        st.pyplot(fig2)
-    elif choice3 == '선차트' :
-        
-        fig3 = plt.figure()
-        fig99 = go.Figure([go.Scatter(x=df['Date'], y=df['High'])])
-        st.plotly_chart(fig99)
-        st.pyplot(fig3)
-        
-    elif choice3 == '바차트' :
-        fig4 = plt.figure()
-        fig98 = px.bar(df, x=df.index, y="Open")
-        st.plotly_chart(fig98)
-        st.pyplot(fig4)  
-        
-    chart2 = [ '선차트' , '바차트']
-    choice4 = st.selectbox('차트 종류를 선택하세요',chart2)
-    st.text('거래량 차트')
-    
-    if choice4 == '선차트' :
-        fig5 = plt.figure()
-        fig97 = go.Figure([go.Scatter(x=df['Date'], y=df['Volume'])])
-        st.plotly_chart(fig97)
-        st.pyplot(fig5)
-        
-    if choice4 == '바차트' :
-        fig6 = plt.figure()
-        fig96 = px.bar(df, x=df.index, y="Volume")
-        st.pyplot(fig6)

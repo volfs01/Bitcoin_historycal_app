@@ -14,3 +14,5 @@ def run_home_app() :
     st.subheader('코인 뉴스를 볼 수 있는 사이트입니다.')
     if st.button('뉴스페이지 이동')  : 
         webbrowser.open( 'https://www.coindeskkorea.com/' )
+        
+    st.image('https://static.upbitcare.com/f4040c43-95a7-4373-bc26-9715f20d70be.png')
