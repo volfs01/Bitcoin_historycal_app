@@ -12,7 +12,7 @@ def run_ml_app() :
     df = pd.read_csv('csv/BTC-USD.csv')
     
     st.subheader('제작 과정')
-    st.text('피처스케일링을 자동으로 해주는 Linear Regression로 제작하였으며 \n거래량을 기반으로 가격(종가)를 예측했다.\n\n평가 기준은 EMS로 정했다. \n\ntain값과 test값을 나누어 모델링 후 학습을 했으며, \n학습 후 얻어낸 예측값과 실제값을 그래프로 나타냈다.\n\n순서는 다음과 같다\n1.X,y 나누기\n2.시험, 훈련 나누기\n3.학습 하기\n4.시험 하기\n4.그래프로 나타내기 ')
+    st.text('피처스케일링을 자동으로 해주는 Linear Regression로 제작하였으며 \n거래량을 기반으로 가격(종가)를 예측했다.\n\n평가 기준은 EMS로 정했다. \n\ntain값과 test값을 나누어 모델링 후 학습을 했으며, \n학습 후 얻어낸 예측값과 실제값을 그래프로 나타냈다.')
     st.subheader('결과')
     # X,y 나누기 
     X = df.loc[ : , 'Volume'].to_frame()
