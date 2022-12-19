@@ -1,11 +1,12 @@
 # Bitcoin_historycal_app
 ![header](https://capsule-render.vercel.app/api?type=Rounded&color=timeGradient&text=github%20of%20vlofs01&stroke=803232&descAlign=&descAlignY=)
 
-![bitcoinlogo](https://user-images.githubusercontent.com/120348531/208353518-c8f3541f-3b27-4133-8c1d-fea8e1e31d30.jpg)
+<center><img src = "https://user-images.githubusercontent.com/120348531/208358947-b77b5132-7c21-4b63-801d-e4b635c8e2b1.png" width="width size%" height="height size%"></center>
 
-비트코인 역사관 
 
-비트코인을 상한가 , 하한가 , 시작가 , 종가 , 날짜 등으로 조회 해보세요 
+비트코인 역사관
+
+비트코인을 상한가 , 하한가 , 시작가 , 종가 , 날짜 등으로 조회 해보세요
 
 # 설명⌛
 1. kaggle에서 가져온 데이터를 이용 했습니다.
